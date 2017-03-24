@@ -1,0 +1,24 @@
+#!/bin/bash
+set -x
+
+adb devices
+
+sleep 3
+
+adb reboot bootloader
+
+sleep 3
+
+fastboot devices
+
+sleep 2
+
+fastboot flash system system.img
+
+sleep 3
+
+fastboot flash boot boot.img
+
+sleep 3
+
+fastboot reboot    

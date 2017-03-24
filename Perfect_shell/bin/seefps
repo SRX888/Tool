@@ -1,0 +1,25 @@
+#!/bin/bash
+set -x
+
+adb devices
+
+sleep 2
+
+adb shell setprop ro.debuggable 1
+
+adb root
+
+sleep 3
+
+adb remount
+
+sleep 3
+
+adb shell setprop persist.camera.hal.debug 3 
+
+sleep 2
+
+adb shell setprop persist.debug.sf.showfps 1
+
+
+adb logcat -v time  |grep "PROFILE_PREVIEW_FRAMES_PER_SECOND"

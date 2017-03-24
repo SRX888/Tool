@@ -1,0 +1,14 @@
+#!/bin/bash
+set -x
+
+adb devices
+
+sleep 2
+
+adb shell setprop ro.debuggable 1
+
+adb root
+
+sleep 3
+
+adb remount
